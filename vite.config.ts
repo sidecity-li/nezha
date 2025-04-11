@@ -18,7 +18,7 @@ export default defineConfig(() => {
         },
         formats: ["es"],
         fileName: (_, entryName) => `${entryName}.js`,
-        cssFileName: `component.css`,
+        cssFileName: `component`,
       },
       rollupOptions: {
         external: [/^react/, /^@radix-ui/],
