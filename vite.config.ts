@@ -1,6 +1,7 @@
 import { defineConfig, UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+// import postcssConfig from "./postcss.config";
 
 export default defineConfig(() => {
   const baseConfig: UserConfig = {
@@ -20,13 +21,15 @@ export default defineConfig(() => {
         cssFileName: `component.css`,
       },
       rollupOptions: {
-        external: ['react', 'react/jsx-runtime', 'react-dom'],
+        external: ["react", "react/jsx-runtime", "react-dom"],
       },
       sourcemap: true,
     },
+    css: {
+    },
   };
   return {
-    mode: "development",
+    mode: "production",
     ...baseConfig,
   };
 });
