@@ -24,9 +24,66 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Ghost: Story = {
+export const Default: Story = {
   args: {
-    variant: 'ghost',
     children: 'Button'
+  },
+};
+
+export const DisabledDefault: Story = {
+  args: {
+    children: 'Button',
+    disabled: true
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Button'
+  },
+};
+
+export const DisabledOutline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Button',
+    disabled: true
+  },
+};
+
+export const Underline: Story = {
+  args: {
+    variant: 'underline',
+    children: 'Deposit'
+  },
+};
+
+export const DisabledUnderline: Story = {
+  args: {
+    variant: 'underline',
+    children: 'Deposit',
+    disabled: true
+  },
+};
+
+export const Small: Story = {
+  args: {
+    children: 'Button',
+    size: 'sm'
+  },
+};
+
+export const DefaultSize: Story = {
+  args: {
+    children: 'Button',
+    size: 'default',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    children: 'Button',
+    size: 'lg'
   },
 };
