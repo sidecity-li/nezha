@@ -23,17 +23,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       underline: "text-primary-text underline-offset-4  underline",
     }[variant];
 
-    const sizeClassName = {
-      sm: "px-6 py-3 text-sm font-semibold h-10",
-      default: "px-10 py-3 text-base font-semibold h-12", 
-      lg: "py-4 px-10 text-lg text-base font-semibold h-14",
-    }[size];
+    let sizeClassName ;
 
-
+    if(variant !== "underline") {
+      sizeClassName = {
+        sm: "px-6 py-3 text-sm font-semibold h-10",
+        default: "px-10 py-3 text-base font-semibold h-12", 
+        lg: "py-4 px-10 text-lg text-base font-semibold h-14",
+      }[size];
+    }
 
     return (
       <Comp
-        className={cn(baseClassName, variantClassName,sizeClassName, className)}
+        className={cn(baseClassName, variantClassName,sizeClassName, {
+          "px-0": variant === "underline",
+          "py-0": variant === "underline",
+        },className)}
         ref={ref}
         {...props}
       />
