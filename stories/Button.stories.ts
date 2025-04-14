@@ -33,14 +33,14 @@ export const Default: Story = {
 export const DisabledDefault: Story = {
   args: {
     children: 'Button',
-    disabled: true
+    disabled: true,
   },
 };
 
 export const Outline: Story = {
   args: {
     variant: 'outline',
-    children: 'Button'
+    children: 'Button',
   },
 };
 
