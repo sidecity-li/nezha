@@ -58,6 +58,8 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), ({addVariant}) => {
+	addVariant ('not-disabled' , '&:not(:disabled)' )
+  }],
 }
 

@@ -14,13 +14,13 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "sm",asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    const baseClassName = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full  transition-colors  disabled:opacity-30 hover:opacity-80";
+    const baseClassName = "disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full  transition-colors  disabled:opacity-30 not-disabled:hover:opacity-80";
     
     const variantClassName = {
       default:
-        "bg-primary-action text-white hover:bg-primary/90 ",
+        "bg-primary-action text-white not-disabled:hover:bg-primary/90 ",
       outline:
-        "border border-primary-action text-primary-text hover:bg-accent hover:text-accent-foreground",
+        "border border-primary-action text-primary-text not-disabled:hover:bg-accent not-disabled:hover:text-accent-foreground",
       underline: "text-primary-text underline-offset-4  underline",
     }[variant];
 
