@@ -21,7 +21,7 @@ export default defineConfig(() => {
         cssFileName: `component`,
       },
       rollupOptions: {
-        external: [/^react/, /^@radix-ui/],
+        external: [/^react/],
       },
       sourcemap: true,
     },
