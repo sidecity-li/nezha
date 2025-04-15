@@ -3,6 +3,7 @@ export default {
     darkMode: ["class"],
     content: [
     "./components/**/*.{js,ts,jsx,tsx}",
+	"./demo/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
   	extend: {
@@ -17,6 +18,10 @@ export default {
 			// "secondary-action": "hsl(var(--secondary-action))",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			tooltip: {
+				DEFAULT: 'hsl(var(--tooltip))',
+				foreground: 'hsl(var(--tooltip-foreground))'
+			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
