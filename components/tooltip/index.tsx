@@ -1,11 +1,11 @@
 import { Tooltip, TooltipRootProps } from "@ark-ui/react/tooltip";
 import { ReactNode } from "react";
 
-const TooltipComponent = (
-  props: TooltipRootProps & {
-    content: ReactNode;
-  }
-) => {
+interface TooltipProps extends TooltipRootProps {
+  content: ReactNode;
+}
+
+const TooltipComponent = (props: TooltipProps) => {
   const { positioning, children, content, ...rest } = props;
   return (
     <Tooltip.Root
@@ -43,3 +43,4 @@ const TooltipComponent = (
 };
 
 export { TooltipComponent as Tooltip };
+export type { TooltipProps };
