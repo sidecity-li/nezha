@@ -15,6 +15,9 @@ export default {
   		colors: {
 			"primary-action": "hsl(var(--primary-action))",
 			"primary-text": "hsl(var(--primary-text))",
+			"basic-line": "hsl(var(--basic-line))",
+			"teriary-text": "hsl(var(--teriary-text))",
+			"basic-link": "hsl(var(--basic-link))",
 			// "secondary-action": "hsl(var(--secondary-action))",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
