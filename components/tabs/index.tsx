@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { Tabs as RawTabs } from "@ark-ui/react/tabs";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
