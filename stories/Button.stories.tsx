@@ -15,6 +15,43 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    children: {
+      control: {
+        type: 'text',
+      },
+      table: {
+        type: { summary: 'ReactNode' },
+        defaultValue: { summary: 'undefined' },
+      },
+    },
+    variant: {
+      control: {
+        type: 'select',
+        options: ['default', 'outline', 'underline'],
+      },
+      description: 'default | outline | underline',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+      }
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'default', 'lg'],
+      },
+      description: 'sm | default | lg',
+      table: {
+        type: { summary:  "string"},
+        defaultValue: { summary: 'default' },
+      },
+    },
+    onClick: {
+      table: {
+        type: { summary: 'function', detail: '() => void' },
+        defaultValue: { summary: 'undefined' },
+      },
+    }
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },

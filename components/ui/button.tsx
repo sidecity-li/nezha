@@ -5,13 +5,12 @@ import { cn } from "@/lib/utils"
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>
   {
-  asChild?: boolean,
   variant?: "default" | "outline" | "underline",
   size?: "sm" | "default" | "lg",
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "default", size = "sm", ...props }, ref) => {
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
     const baseClassName = "disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full  transition-colors  disabled:opacity-30 not-disabled:hover:opacity-80";
     
     const variantClassName = {
