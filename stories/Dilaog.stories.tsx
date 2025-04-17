@@ -16,7 +16,7 @@ const meta: Meta<typeof Dialog> = {
     docs: {
       description: {
         component:
-          "基于ARK Tooltip扩展而来, 文档地址: https://ark-ui.com/react/docs/components/tooltip",
+          "基于ARK Dialog扩展而来, 文档地址: https://ark-ui.com/react/docs/components/dialog",
       },
     },
   },
@@ -58,25 +58,30 @@ export const Default: Story = {
     children: "点击我",
     title: "对话框标题",
     className: "w-[500px]",
-    content: "对话框标题",
+    content: <div className="h-[150px] text-center">对话框内容</div>,
   },
 };
 
 export const Command: Story = {
   args: {},
   render: () => {
-    const ref = useRef<UseDialogContext | null>(null);
-
-    return (
-      <div>
-        <Button onClick={() => ref.current?.setOpen(true)}>点我</Button>
-        <Dialog
-          title="对话框标题"
-          className="w-[500px]"
-          content="对话框内容"
-          ref={ref}
-        ></Dialog>
-      </div>
-    );
+    const CommandComponent = () => {
+      const ref = useRef<UseDialogContext | null>(null);
+      const onClick = () => {
+        ref.current?.setOpen?.(true);
+      };
+      return (
+        <div>
+          <Button onClick={onClick}>点我</Button>
+          <Dialog
+            title="对话框标题"
+            className="w-[500px]"
+            content="对话框内容"
+            dialogContextRef={ref}
+          ></Dialog>
+        </div>
+      );
+    };
+    return <CommandComponent />;
   },
 };

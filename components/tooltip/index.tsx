@@ -1,13 +1,15 @@
+import { cn } from "@/lib/cn";
 import { isTextNode } from "@/lib/isTextNode";
 import { Tooltip, TooltipRootProps, Portal } from "@ark-ui/react";
 import { ReactNode } from "react";
 
 interface TooltipProps extends TooltipRootProps {
   content: ReactNode;
+  className?: string;
 }
 
 const TooltipComponent = (props: TooltipProps) => {
-  const { positioning, children, content, ...rest } = props;
+  const { positioning, children, content, className, ...rest } = props;
   return (
     <Tooltip.Root
       openDelay={300}
@@ -25,7 +27,12 @@ const TooltipComponent = (props: TooltipProps) => {
       </Tooltip.Trigger>
       <Portal>
         <Tooltip.Positioner>
-          <Tooltip.Content className="max-w-[var(--available-width)] select-text rounded-lg bg-tooltip p-3 text-left text-xs text-tooltip-foreground">
+          <Tooltip.Content
+            className={cn(
+              "max-w-[var(--available-width)] select-text rounded-lg bg-tooltip p-3 text-left text-xs text-tooltip-foreground",
+              className,
+            )}
+          >
             <Tooltip.Arrow
               style={
                 {
