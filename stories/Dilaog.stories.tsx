@@ -1,13 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Tooltip } from "../components/tooltip";
+import { Dialog } from "@/components/dialog";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<typeof Tooltip> = {
-  title: "Components/Tooltip",
-  // decorators:[() => ({
-  //   template: '<div style="margin: 3em;"><story/></div>'
-  // })],
-  component: Tooltip,
+const meta: Meta<typeof Dialog> = {
+  title: "Components/Dialog",
+  component: Dialog,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -53,21 +50,8 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    children: "hover me",
-    content:
-      "I am a toolti你啊和公安您改的难打卡减肥啊喂；金拿单啊快递费那肯定是封口机啊剪短发安康份咖喱饭难分卡上给你讲啊可能放安个；安高考啦里那点女篮过来啊过年啦过年啦个哪里啊难啦过年啦个那你看啊那个那个那个了那管理规范呢 发你!",
-  },
-};
-
-export const WithWidth: Story = {
-  args: {
-    children: "hover me",
-    content: (
-      <div className="w-[400px]">
-        I am a
-        toolti你啊和公安您改的难打卡减肥啊喂；金拿单啊快递费那肯定是封口机啊剪短发安康份咖喱饭难分卡上给你讲啊可能放安个；安高考啦里那点女篮过来啊过年啦过年啦个哪里啊难啦过年啦个那你看啊那个那个那个了那管理规范呢
-        发你!
-      </div>
-    ),
+    children: "点击我",
+    title: "对话框标题",
+    content: <div className="my-9">哈哈哈啊</div>,
   },
 };

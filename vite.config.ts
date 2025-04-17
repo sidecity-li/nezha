@@ -1,11 +1,11 @@
 import { defineConfig, UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-// import postcssConfig from "./postcss.config";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig(() => {
   const baseConfig: UserConfig = {
-    plugins: [react()],
+    plugins: [svgr(), react()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "."),
@@ -25,8 +25,7 @@ export default defineConfig(() => {
       },
       sourcemap: true,
     },
-    css: {
-    },
+    css: {},
   };
   return {
     mode: "production",

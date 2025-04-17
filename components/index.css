@@ -6,15 +6,16 @@
     --primary-action: 210 7% 5%;
     --primary-text: 200 56% 4%;
     --primary-action-foreground: 210 7% 95%;
-    /* 白色 */
-    --background: 0 0% 100%;
+    --background: 0 0% 100%; /* 白色 */
     --foreground: 0 0% 3.9%;
+    --mask: 0 0% 0%;
     --card: var(--background);
     --card-foreground: 0 0% 3.9%;
     --tooltip: 200 6% 19%;
     --tooltip-foreground: var(--background);
     --popover: var(--background);
     --popover-foreground: 0 0% 3.9%;
+    --dialog: var(--mask);
     --primary: 0 0% 9%;
     --primary-foreground: var(--background);
     --secondary: 0 0% 96.1%;

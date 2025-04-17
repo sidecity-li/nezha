@@ -1,4 +1,5 @@
-import { Tooltip, TooltipRootProps } from "@ark-ui/react/tooltip";
+import { isTextNode } from "@/lib/isTextNode";
+import { Tooltip, TooltipRootProps, Portal } from "@ark-ui/react";
 import { ReactNode } from "react";
 
 interface TooltipProps extends TooltipRootProps {
@@ -12,18 +13,19 @@ const TooltipComponent = (props: TooltipProps) => {
       openDelay={300}
       closeOnClick={false}
       closeOnPointerDown={false}
+      interactive={true}
       positioning={{
         placement: "top",
         ...positioning,
       }}
       {...rest}
     >
-      <Tooltip.Trigger
-        asChild={typeof children !== "string" && typeof children !== "number"}
-      >
+      <Tooltip.Trigger asChild={!isTextNode(children)}>
         {children}
+      </Tooltip.Trigger>
+      <Portal>
         <Tooltip.Positioner>
-          <Tooltip.Content className="text-left select-text text-tooltip-foreground bg-tooltip rounded-lg text-xs p-3 max-w-[var(--available-width)]">
+          <Tooltip.Content className="max-w-[var(--available-width)] select-text rounded-lg bg-tooltip p-3 text-left text-xs text-tooltip-foreground">
             <Tooltip.Arrow
               style={
                 {
@@ -37,7 +39,7 @@ const TooltipComponent = (props: TooltipProps) => {
             {content}
           </Tooltip.Content>
         </Tooltip.Positioner>
-      </Tooltip.Trigger>
+      </Portal>
     </Tooltip.Root>
   );
 };
