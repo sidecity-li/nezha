@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Meta, StoryObj } from "@storybook/react";
 import { Dialog } from "@/components/dialog";
+import { useRef } from "react";
+import { UseDialogContext } from "@ark-ui/react";
+import { Button } from "@/components/button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Dialog> = {
@@ -54,6 +57,26 @@ export const Default: Story = {
   args: {
     children: "点击我",
     title: "对话框标题",
-    content: <div className="my-9">哈哈哈啊</div>,
+    className: "w-[500px]",
+    content: "对话框标题",
+  },
+};
+
+export const Command: Story = {
+  args: {},
+  render: () => {
+    const ref = useRef<UseDialogContext | null>(null);
+
+    return (
+      <div>
+        <Button onClick={() => ref.current?.setOpen(true)}>点我</Button>
+        <Dialog
+          title="对话框标题"
+          className="w-[500px]"
+          content="对话框内容"
+          ref={ref}
+        ></Dialog>
+      </div>
+    );
   },
 };

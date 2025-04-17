@@ -1,2 +1,2 @@
-export { Button } from "./button/button";
+export { Button } from "./button";
 import "./index.css";
