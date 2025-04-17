@@ -63,7 +63,7 @@ export const WithWidth: Story = {
   args: {
     children: "hover me",
     content: (
-      <div className="w-[400px]">
+      <div className="w-[576px]">
         I am a
         toolti你啊和公安您改的难打卡减肥啊喂；金拿单啊快递费那肯定是封口机啊剪短发安康份咖喱饭难分卡上给你讲啊可能放安个；安高考啦里那点女篮过来啊过年啦过年啦个哪里啊难啦过年啦个那你看啊那个那个那个了那管理规范呢
         发你!

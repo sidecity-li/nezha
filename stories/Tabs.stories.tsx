@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { Tabs } from "../components/tabs";
-import { table } from "console";
 
 const Root = Tabs.Root;
 // const List = Tabs.List;

@@ -1,12 +1,15 @@
 import { useRef } from "react";
 
-export function usePersistFn(fn: (...args: any[]) => any) {
-  const fnRef = useRef<((...args: any[]) => any) | null>(null);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function usePersistFn<T extends (...args: any[]) => any>(fn: T) {
+  const fnRef = useRef<T | null>(null);
   fnRef.current = fn;
 
-  const persistFn = useCallback((...args: any[]) => {
-    return ref.current(...args);
-  }, []);
+  const returnedFnRef = useRef<T | null>(null);
 
-  return persistFn;
+  if (!returnedFnRef.current) {
+    returnedFnRef.current = ((...args) => fnRef.current!(...args)) as T;
+  }
+
+  return returnedFnRef.current;
 }
