@@ -57,8 +57,13 @@ export const Default: Story = {
   args: {
     children: "点击我",
     title: "对话框标题",
-    className: "w-[500px]",
-    content: <div className="h-[150px] text-center">对话框内容</div>,
+    className: "w-[500px] h-[200px]",
+    content: (
+      <>
+        <div className="h-[150px] py-[150px] text-center">对话框内容</div>
+        77
+      </>
+    ),
   },
 };
 

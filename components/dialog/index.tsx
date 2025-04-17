@@ -41,10 +41,7 @@ export const Dialog = (props: DialogProps) => {
   const close = () => dialogContextRef?.current?.setOpen(false);
 
   let closeNode = (
-    <CloseIcon
-      className="absolute right-8 top-9 cursor-pointer"
-      onClick={close}
-    />
+    <CloseIcon className="right-8 top-9 cursor-pointer" onClick={close} />
   );
 
   if (typeof getCloseNode === "function") {
@@ -64,7 +61,7 @@ export const Dialog = (props: DialogProps) => {
 
   let footer;
   footer = (
-    <div className="mt-4 flex gap-4">
+    <div className="sticky bottom-0 mt-4 flex gap-4 bg-white">
       {cancelNode}
       {confirmNode}
     </div>
@@ -102,16 +99,26 @@ export const Dialog = (props: DialogProps) => {
               className,
             )}
           >
-            <RawDialog.Title
-              className={cn("mb-2 text-xl text-primary-text", {
-                "display-none": !title,
-              })}
+            <div
+              className={cn(
+                "sticky top-0 flex items-center justify-between bg-white",
+                {
+                  "display-none": !title && !closeNode,
+                  "mb-2": title || closeNode,
+                },
+              )}
             >
-              {title}
-            </RawDialog.Title>
+              <RawDialog.Title
+                className={cn("text-xl text-primary-text", {
+                  "display-none": !title,
+                })}
+              >
+                {title}
+              </RawDialog.Title>
+              <div className="self-end">{closeNode}</div>
+            </div>
             {content}
             {footer}
-            {closeNode}
           </RawDialog.Content>
         </RawDialog.Positioner>
       </Portal>
