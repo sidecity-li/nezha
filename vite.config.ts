@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import svgr from "vite-plugin-svgr";
 
-export default defineConfig(() => {
+export default defineConfig((config) => {
+  console.log(config, "config");
   const baseConfig: UserConfig = {
     plugins: [svgr(), react()],
     resolve: {

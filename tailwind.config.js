@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 
 function getConfig() {
-  const isDev = process.env.NODE_ENV === "development";
+  const isStorybook = process.env.TYPE === "storybook";
   const content = ["./components/**/*.{js,ts,jsx,tsx}"];
   const config = {
     darkMode: ["class"],
-    content: isDev ? [...content, "./stories/**/*.{js,ts,jsx,tsx}"] : content,
+    content: isStorybook
+      ? [...content, "./stories/**/*.{js,ts,jsx,tsx}"]
+      : content,
     theme: {
       extend: {
         borderRadius: {
