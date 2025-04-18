@@ -4,7 +4,7 @@ import { isTextNode } from "@/lib/isTextNode";
 import { Tooltip, TooltipRootProps, Portal } from "@ark-ui/react";
 import { ReactNode } from "react";
 
-interface TooltipProps extends TooltipRootProps {
+export interface TooltipProps extends TooltipRootProps {
   content: ReactNode;
   className?: string;
 }
@@ -53,4 +53,3 @@ const TooltipComponent = (props: TooltipProps) => {
 };
 
 export { TooltipComponent as Tooltip };
-export type { TooltipProps };

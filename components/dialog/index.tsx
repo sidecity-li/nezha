@@ -7,13 +7,13 @@ import CloseIcon from "@/components/icons/close.svg?react";
 import { Button } from "../button";
 import { UseDialogContextMounter } from "./UseDialogContextMounter";
 
-export interface DialogProps {
+export interface DialogProps extends RawDialog.RootProps {
   title?: ReactNode;
   content: ReactNode;
   closeNode?: (
     dialogContextRef: RefObject<UseDialogContext | null>,
     rawCloseNode: ReactElement,
-  ) => ReactElement;
+  ) => ReactElement | null;
   footerNode?: (options: {
     dialogContextRef: RefObject<UseDialogContext | null>;
     cancelNode: ReactElement<HTMLButtonElement>;
@@ -41,12 +41,16 @@ export const Dialog = (props: DialogProps) => {
 
   const close = () => dialogContextRef?.current?.setOpen(false);
 
-  let closeNode = (
+  const defaultCloseNode = (
     <CloseIcon className="right-8 top-9 cursor-pointer" onClick={close} />
   );
 
+  let closeNode;
+
   if (typeof getCloseNode === "function") {
-    closeNode = getCloseNode(dialogContextRef, closeNode);
+    closeNode = getCloseNode(dialogContextRef, defaultCloseNode);
+  } else {
+    closeNode = defaultCloseNode;
   }
 
   const cancelNode = (
@@ -92,7 +96,7 @@ export const Dialog = (props: DialogProps) => {
         }}
       />
       <Portal>
-        <RawDialog.Backdrop className="bg-dialog/60 fixed inset-0" />
+        <RawDialog.Backdrop className="fixed inset-0 bg-dialog/60" />
         <RawDialog.Positioner>
           <RawDialog.Content
             className={cn(
@@ -116,7 +120,7 @@ export const Dialog = (props: DialogProps) => {
               >
                 {title}
               </RawDialog.Title>
-              <div className="self-end">{closeNode}</div>
+              <div className="flex-none self-end">{closeNode}</div>
             </div>
             {content}
             {footer}

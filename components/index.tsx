@@ -1,5 +1,7 @@
-export { Button } from "./button";
+export { Button, type ButtonProps } from "./button";
 export { Tabs } from "./tabs";
-export { Dialog } from "./dialog";
-export { Tooltip } from "./tooltip";
+export { Dialog, type DialogProps } from "./dialog";
+export { Tooltip, type TooltipProps } from "./tooltip";
+export { AlertDialog, type AlertDialogProps } from "./alert-dialog";
+
 import "./index.css";
