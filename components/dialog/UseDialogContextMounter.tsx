@@ -1,3 +1,4 @@
+"use client";
 import { UseDialogContext, useDialogContext } from "@ark-ui/react";
 import { forwardRef, Ref, useImperativeHandle } from "react";
 

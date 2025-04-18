@@ -1,0 +1,1 @@
+export { usePersistFn } from "./usePersistFn";

@@ -1,5 +1,6 @@
-import { cn } from "@/lib/cn";
-import { Tabs as RawTabs } from "@ark-ui/react/tabs";
+"use client";
+import { cn } from "@/lib";
+import { Tabs as RawTabs } from "@ark-ui/react";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 const Root = forwardRef<

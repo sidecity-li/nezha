@@ -1,7 +1,8 @@
+"use client";
 import { Dialog as RawDialog, Portal, UseDialogContext } from "@ark-ui/react";
 import { ReactElement, ReactNode, RefObject, useRef } from "react";
 import { isTextNode } from "@/lib/isTextNode";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib";
 import CloseIcon from "@/components/icons/close.svg?react";
 import { Button } from "../button";
 import { UseDialogContextMounter } from "./UseDialogContextMounter";

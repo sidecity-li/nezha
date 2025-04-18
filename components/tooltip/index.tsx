@@ -1,4 +1,5 @@
-import { cn } from "@/lib/cn";
+"use client";
+import { cn } from "@/lib";
 import { isTextNode } from "@/lib/isTextNode";
 import { Tooltip, TooltipRootProps, Portal } from "@ark-ui/react";
 import { ReactNode } from "react";
