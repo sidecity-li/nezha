@@ -62,7 +62,7 @@ export const Dialog = (props: DialogProps) => {
 
   let footer;
   footer = (
-    <div className="sticky bottom-0 mt-4 flex gap-4 bg-white">
+    <div className="sticky bottom-0 mt-4 flex gap-4 bg-white pb-8">
       {cancelNode}
       {confirmNode}
     </div>
@@ -96,13 +96,13 @@ export const Dialog = (props: DialogProps) => {
         <RawDialog.Positioner>
           <RawDialog.Content
             className={cn(
-              "fixed left-1/2 top-1/2 max-h-screen -translate-x-1/2 -translate-y-1/2 overflow-auto rounded-xl bg-white p-8",
+              "fixed left-1/2 top-1/2 max-h-screen -translate-x-1/2 -translate-y-1/2 overflow-auto rounded-xl bg-white px-8",
               className,
             )}
           >
             <div
               className={cn(
-                "sticky top-0 flex items-center justify-between bg-white",
+                "sticky top-0 flex items-center justify-between bg-white pt-8",
                 {
                   "display-none": !title && !closeNode,
                   "mb-2": title || closeNode,
