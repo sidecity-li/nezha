@@ -38,6 +38,10 @@
     --basic-line: 200 10% 91%;
     --teriary-text: 200 10% 53%;
     --basic-link: 92 100% 36%;
+    --border: 200 10% 87%;
+    --hint: 200 9% 74%;
+    --block: 200 11% 96%;
+    --red: 0 96% 56%;
   }
   .dark {
     --background: 0 0% 3.9%;
