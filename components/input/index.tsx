@@ -60,7 +60,7 @@ const Input = forwardRef<
           ref={ref}
           {...props}
         />
-        {clearNode}
+        {!disabled && clearNode}
         {suffix && <span className="flex-none">{suffix}</span>}
       </div>
     );
