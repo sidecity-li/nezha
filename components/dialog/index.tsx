@@ -120,7 +120,9 @@ export const Dialog = (props: DialogProps) => {
               >
                 {title}
               </RawDialog.Title>
-              <div className="flex-none self-end">{closeNode}</div>
+              {closeNode && (
+                <div className="flex-none self-end">{closeNode}</div>
+              )}
             </div>
             {content}
             <div className="sticky bottom-0 mt-4 bg-white pb-8">{footer}</div>
