@@ -66,7 +66,7 @@ export const Dialog = (props: DialogProps) => {
 
   let footer;
   footer = (
-    <div className="sticky bottom-0 mt-4 flex gap-4 bg-white pb-8">
+    <div className="flex gap-4">
       {cancelNode}
       {confirmNode}
     </div>
@@ -123,7 +123,7 @@ export const Dialog = (props: DialogProps) => {
               <div className="flex-none self-end">{closeNode}</div>
             </div>
             {content}
-            {footer}
+            <div className="sticky bottom-0 mt-4 bg-white pb-8">{footer}</div>
           </RawDialog.Content>
         </RawDialog.Positioner>
       </Portal>
