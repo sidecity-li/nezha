@@ -4,7 +4,7 @@ import ClearIcon from "@/components/icons/clear.svg?react";
 
 const Input = forwardRef<
   HTMLInputElement,
-  ComponentProps<"input"> & {
+  Omit<ComponentProps<"input">, "prefix"> & {
     variant?: "default" | "error";
     allowClear?: boolean;
     onClear?: () => void;
@@ -43,7 +43,7 @@ const Input = forwardRef<
         className={cn(
           "flex h-14 w-full items-center gap-3 rounded-lg border border-border px-4 py-3 focus-within:border-primary-action",
           {
-            "bg-block cursor-not-allowed opacity-60": disabled,
+            "cursor-not-allowed bg-block opacity-60": disabled,
           },
           {
             "border-red focus-within:border-red": variant === "error",
@@ -54,7 +54,7 @@ const Input = forwardRef<
         {prefix && <span className="flex-none">{prefix}</span>}
         <input
           className={cn(
-            "placeholder:text-hint h-full min-w-0 flex-1 border-none text-base text-primary-text outline-none placeholder:text-base disabled:cursor-not-allowed",
+            "h-full min-w-0 flex-1 border-none text-base text-primary-text outline-none placeholder:text-base placeholder:text-hint disabled:cursor-not-allowed",
           )}
           disabled={disabled}
           ref={ref}
