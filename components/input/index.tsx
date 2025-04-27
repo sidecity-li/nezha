@@ -4,12 +4,13 @@ import ClearIcon from "@/components/icons/clear.svg?react";
 
 const Input = forwardRef<
   HTMLInputElement,
-  Omit<ComponentProps<"input">, "prefix"> & {
+  Omit<ComponentProps<"input">, "prefix" | "size"> & {
     variant?: "default" | "error";
     allowClear?: boolean;
     onClear?: () => void;
     prefix?: ReactNode;
     suffix?: ReactNode;
+    size?: "default" | "large";
   }
 >(
   (
@@ -21,6 +22,7 @@ const Input = forwardRef<
       allowClear = false,
       onClear,
       disabled,
+      size = "default",
       ...props
     },
     ref,
@@ -41,20 +43,25 @@ const Input = forwardRef<
     return (
       <div
         className={cn(
-          "flex h-14 w-full items-center gap-3 rounded-lg border border-border px-4 py-3 focus-within:border-primary-action",
+          "flex h-14 w-full items-center gap-3 rounded-lg border border-border px-4 focus-within:border-primary-action",
           {
             "cursor-not-allowed bg-block opacity-60": disabled,
           },
           {
             "border-red focus-within:border-red": variant === "error",
           },
+          size === "large" ? "h-14 py-3" : "h-10 py-2.5",
           className,
         )}
       >
         {prefix && <span className="flex-none">{prefix}</span>}
         <input
           className={cn(
-            "h-full min-w-0 flex-1 border-none text-base text-primary-text outline-none placeholder:text-base placeholder:text-hint disabled:cursor-not-allowed",
+            "h-full min-w-0 flex-1 border-none text-primary-text outline-none placeholder:text-hint disabled:cursor-not-allowed",
+            {
+              "text-base placeholder:text-base": size === "large",
+              "text-sm placeholder:text-sm": size === "default",
+            },
           )}
           disabled={disabled}
           ref={ref}

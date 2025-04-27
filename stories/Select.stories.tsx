@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import WarningIcon from "@/components/icons/warning.svg?react";
-import { Input } from "../components/input";
+import { Select } from "../components/select";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Components/Input",
-  component: Input,
+  title: "Components/Select",
+  component: Select as unknown as any,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -55,7 +55,7 @@ const meta = {
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof Select>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -64,13 +64,33 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     placeholder: "请输入",
+    size: "large",
+    items: ["Angular", "Vue", "React"],
+    filter: (item: string, keyword: string) => item.includes(keyword),
+  },
+  render(args) {
+    return (
+      <div className="w-[500px]">
+        <Select<string> {...args} />
+      </div>
+    );
   },
 };
 
-export const Large: Story = {
+export const Multiple: Story = {
   args: {
     placeholder: "请输入",
+    multiple: true,
     size: "large",
+    items: ["Angular", "Vue", "React"],
+    filter: (item: string, keyword: string) => item.includes(keyword),
+  },
+  render(args) {
+    return (
+      <div className="w-[500px]">
+        <Select<string> {...args} />
+      </div>
+    );
   },
 };
 
@@ -78,41 +98,50 @@ export const Disabled: Story = {
   args: {
     placeholder: "请输入",
     disabled: true,
+    items: ["Angular", "Vue", "React"],
+    size: "large",
+  },
+  render(args) {
+    return (
+      <div className="w-[500px]">
+        <Select<string> {...args} />
+      </div>
+    );
   },
 };
 
-export const Error: Story = {
-  args: {
-    variant: "error",
-    value: "8888",
-  },
-};
+// export const Error: Story = {
+//   args: {
+//     variant: "error",
+//     value: "8888",
+//   },
+// };
 
-export const AllowClear: Story = {
-  args: {
-    allowClear: true,
-    onClear: fn(),
-  },
-};
+// export const AllowClear: Story = {
+//   args: {
+//     allowClear: true,
+//     onClear: fn(),
+//   },
+// };
 
-export const Prefix: Story = {
-  args: {
-    allowClear: true,
-    prefix: <WarningIcon className="size-8" />,
-  },
-};
+// export const Prefix: Story = {
+//   args: {
+//     allowClear: true,
+//     prefix: <WarningIcon className="size-8" />,
+//   },
+// };
 
-export const Suffix: Story = {
-  args: {
-    allowClear: true,
-    suffix: <WarningIcon className="size-8" />,
-  },
-};
+// export const Suffix: Story = {
+//   args: {
+//     allowClear: true,
+//     suffix: <WarningIcon className="size-8" />,
+//   },
+// };
 
-export const DisabledSuffix: Story = {
-  args: {
-    allowClear: true,
-    disabled: true,
-    suffix: <WarningIcon className="size-8" />,
-  },
-};
+// export const DisabledSuffix: Story = {
+//   args: {
+//     allowClear: true,
+//     disabled: true,
+//     suffix: <WarningIcon className="size-8" />,
+//   },
+// };
