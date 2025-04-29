@@ -202,7 +202,12 @@ function SelectComponent<T>(
           </Select.Content>
         </Select.Positioner>
       </Portal>
-      <Select.HiddenSelect ref={ref} value={value} multiple={multiple} />
+      <Select.HiddenSelect
+        ref={ref}
+        value={value}
+        multiple={multiple}
+        onChange={(e) => console.log(e.target.value, "event")}
+      />
     </Select.Root>
   );
 }

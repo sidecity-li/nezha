@@ -18,6 +18,7 @@ function getConfig() {
         colors: {
           "primary-action": "hsl(var(--primary-action))",
           "primary-text": "hsl(var(--primary-text))" /**200 56% 4% */,
+          "secondary-text": "hsl(var(--secondary-text))",
           "basic-line": "hsl(var(--basic-line))",
           "teriary-text": "hsl(var(--teriary-text))",
           "basic-link": "hsl(var(--basic-link))",
@@ -25,6 +26,7 @@ function getConfig() {
           hint: "hsl(var(--hint))",
           block: "hsl(var(--block))",
           red: "hsl(var(--red))",
+          green: "hsl(var(--green))",
           // "secondary-action": "hsl(var(--secondary-action))",
           background: "hsl(var(--background))",
           foreground: "hsl(var(--foreground))",

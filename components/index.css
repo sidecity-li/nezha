@@ -6,6 +6,7 @@
     --primary-action: 210 7% 5%;
     --primary-text: 200 56% 4%;
     --primary-action-foreground: 210 7% 95%;
+    --secondary-text: 200 19% 20%;
     --background: 0 0% 100%; /* 白色 */
     --foreground: 0 0% 3.9%;
     --mask: 0 0% 0%;
@@ -42,6 +43,7 @@
     --hint: 200 9% 74%;
     --block: 200 11% 96%;
     --red: 0 96% 56%;
+    --green: 83 100% 61%;
   }
   .dark {
     --background: 0 0% 3.9%;
