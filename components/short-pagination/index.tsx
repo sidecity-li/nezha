@@ -18,7 +18,7 @@ export function ShortPagination({
     "size-10 rounded-full border border-border flex items-center justify-center";
   return (
     <div className="flex justify-center gap-8">
-      <div
+      <button
         className={cn(
           paginationItemClassName,
           "rotate-180",
@@ -29,8 +29,8 @@ export function ShortPagination({
         onClick={onPrevious}
       >
         <CaretRightIcon className="size-6" />
-      </div>
-      <div
+      </button>
+      <button
         className={cn(
           paginationItemClassName,
           hasNext === true
@@ -40,7 +40,7 @@ export function ShortPagination({
         onClick={onNext}
       >
         <CaretRightIcon className="size-6" />
-      </div>
+      </button>
     </div>
   );
 }

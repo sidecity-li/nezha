@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/cn";
 import { Pagination, PaginationRootProps } from "@ark-ui/react";
 import ArrowRightIcon from "@/components/icons/arrow-right.svg?react";
@@ -16,7 +17,7 @@ function PaginationComponent(props: PaginationProps) {
               <Pagination.PrevTrigger
                 disabled={current === 1}
                 className={cn("mr-[52px] flex items-center gap-1", {
-                  "opacity-55": current === 1,
+                  "cursor-not-allowed opacity-55": current === 1,
                 })}
               >
                 <ArrowRightIcon className="text-secondary-text rotate-180" />
@@ -52,7 +53,7 @@ function PaginationComponent(props: PaginationProps) {
               })}
               <Pagination.NextTrigger
                 className={cn("ml-[52px] flex items-center gap-1", {
-                  "opacity-55": current === totalPages,
+                  "cursor-not-allowed opacity-55": current === totalPages,
                 })}
                 disabled={current === totalPages}
               >
