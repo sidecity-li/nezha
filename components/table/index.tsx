@@ -7,7 +7,7 @@ const RawTable = forwardRef<
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
   <div className={cn("w-full overflow-auto bg-white", className)}>
-    <table className="w-fit table-fixed" ref={ref} {...props} />
+    <table ref={ref} className={cn("w-full")} {...props} />
   </div>
 ));
 Table.displayName = "Table";
