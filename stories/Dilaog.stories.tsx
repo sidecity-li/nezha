@@ -57,7 +57,7 @@ export const Default: Story = {
     children: "点击我",
     title: "对话框标题",
     className: "w-[500px] h-[400px]",
-    content: (
+    content: () => (
       <>
         <div className="h-[150px] py-[150px] text-center">对话框内容</div>
         77
@@ -80,7 +80,13 @@ export const Command: Story = {
           <Dialog
             title="对话框标题"
             className="w-[500px]"
-            content="对话框内容"
+            content={(context) => {
+              return (
+                <div onClick={() => context.current?.setOpen(false)}>
+                  点击我也可以关闭对话框
+                </div>
+              );
+            }}
             dialogContextRef={ref}
           ></Dialog>
         </div>

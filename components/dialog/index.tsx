@@ -9,7 +9,7 @@ import { UseDialogContextMounter } from "./UseDialogContextMounter";
 
 export interface DialogProps extends RawDialog.RootProps {
   title?: ReactNode;
-  content: ReactNode;
+  content: (dialogContextRef: RefObject<UseDialogContext | null>) => ReactNode;
   closeNode?: (
     dialogContextRef: RefObject<UseDialogContext | null>,
     rawCloseNode: ReactElement,
@@ -23,6 +23,9 @@ export interface DialogProps extends RawDialog.RootProps {
   children?: ReactNode;
   className?: string;
   dialogContextRef?: RefObject<UseDialogContext | null>;
+  onCancel?: (dialogContextRef: RefObject<UseDialogContext | null>) => void;
+  onConfirm?: (dialogContextRef: RefObject<UseDialogContext | null>) => void;
+  onClose?: (dialogContextRef: RefObject<UseDialogContext | null>) => void;
 }
 
 export const Dialog = (props: DialogProps) => {
@@ -34,6 +37,9 @@ export const Dialog = (props: DialogProps) => {
     closeNode: getCloseNode,
     footerNode: getFooterNode,
     dialogContextRef: rawDialogContextRef,
+    onCancel: rawOnCancel,
+    onConfirm: rawOnConfirm,
+    onClose: rawOnClose,
     ...rest
   } = props;
 
@@ -41,8 +47,16 @@ export const Dialog = (props: DialogProps) => {
 
   const close = () => dialogContextRef?.current?.setOpen(false);
 
+  const onClose = () => {
+    if (rawOnClose) {
+      rawOnClose(dialogContextRef);
+    } else {
+      close();
+    }
+  };
+
   const defaultCloseNode = (
-    <CloseIcon className="right-8 top-9 cursor-pointer" onClick={close} />
+    <CloseIcon className="right-8 top-9 cursor-pointer" onClick={onClose} />
   );
 
   let closeNode;
@@ -53,13 +67,30 @@ export const Dialog = (props: DialogProps) => {
     closeNode = defaultCloseNode;
   }
 
+  const onCancel = () => {
+    if (rawOnCancel) {
+      rawOnCancel(dialogContextRef);
+    } else {
+      close();
+    }
+  };
+
   const cancelNode = (
-    <Button variant="outline" className="flex-1" onClick={close}>
+    <Button variant="outline" className="flex-1" onClick={onCancel}>
       Cancel
     </Button>
   );
+
+  const onConfirm = () => {
+    if (rawOnConfirm) {
+      rawOnConfirm(dialogContextRef);
+    } else {
+      close();
+    }
+  };
+
   const confirmNode = (
-    <Button className="flex-1" onClick={close}>
+    <Button className="flex-1" onClick={onConfirm}>
       Confirm
     </Button>
   );
@@ -124,7 +155,7 @@ export const Dialog = (props: DialogProps) => {
                 <div className="flex-none self-end">{closeNode}</div>
               )}
             </div>
-            {content}
+            {content(dialogContextRef)}
             <div className="sticky bottom-0 mt-4 bg-white pb-8">{footer}</div>
           </RawDialog.Content>
         </RawDialog.Positioner>

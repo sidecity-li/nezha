@@ -30,7 +30,7 @@ export function AlertDialog(props: AlertDialogProps) {
   return (
     <Dialog
       unmountOnExit={false}
-      content={content}
+      content={() => content}
       closeNode={() => null}
       className={cn("w-[560px]", className)}
       {...rest}
